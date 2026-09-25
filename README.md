@@ -12,13 +12,14 @@ and its own content:
 - **firebase-blog (this project)** — retro terminal/CRT: a floating "window" with
   traffic-light dots, monospace throughout, posts that read like `cat <slug>.md`
 
-**Repo:** [CreativeDigitalGrowth/firebase-blog](https://github.com/CreativeDigitalGrowth/firebase-blog)
-on GitHub. **Hosting: Firebase Hosting**, project `creativedigitalgrowth-d830c`
-(`https://creativedigitalgrowth-d830c.firebaseapp.com/`) — landed here after Replit
-(30-day free-tier expiry) and Render (requires card verification) didn't work out. The
-project exists but nothing is deployed to it yet; see [CLAUDE.md](CLAUDE.md) for the
-remaining `firebase init hosting:github` step (needs your own Google login, can't be
-done from an assistant session).
+**Repo:** [LocalSEOHUB/firebase-blog](https://github.com/LocalSEOHUB/firebase-blog)
+on GitHub. **Hosting: Firebase Hosting**, PLACEHOLDER project id
+`localseohub-blog-PLACEHOLDER` (`https://localseohub.firebaseapp.com/`, itself a
+placeholder domain) — landed here after Replit (30-day free-tier expiry) and Render
+(requires card verification) didn't work out. **No real Firebase project exists yet**
+and nothing is deployed; see [CLAUDE.md](CLAUDE.md) for the remaining steps (creating
+the real Firebase project, then `firebase init hosting:github` — needs your own
+Google login, can't be done from an assistant session).
 
 ## Quick start
 

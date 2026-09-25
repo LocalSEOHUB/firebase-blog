@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://creativedigitalgrowth-d830c.firebaseapp.com/sitemap-index.xml
+Sitemap: https://localseohub.firebaseapp.com/sitemap-index.xml

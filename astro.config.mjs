@@ -2,12 +2,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Deployed via Firebase Hosting (firebase.json + .firebaserc at the project root),
-// project creativedigitalgrowth-d830c. src/lib/url.ts mediates every internal link, so
-// the site can move under a sub-path (or a custom domain) later by changing
-// `site`/`base` here alone.
+// Deployed via Firebase Hosting (firebase.json + .firebaserc at the project root).
+// PLACEHOLDER project: .firebaserc pins "localseohub-blog-PLACEHOLDER", which is not
+// a real Firebase project yet. src/lib/url.ts mediates every internal link, so the
+// site can move under a sub-path (or a custom domain) later by changing `site`/`base`
+// here alone — update this `site` value together with `.firebaserc` once a real
+// Firebase project exists (see CLAUDE.md).
 export default defineConfig({
-  site: 'https://creativedigitalgrowth-d830c.firebaseapp.com',
+  site: 'https://localseohub.firebaseapp.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({

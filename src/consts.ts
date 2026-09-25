@@ -1,7 +1,7 @@
 /**
  * Single place to edit the blog's identity. Nothing else hardcodes these values.
  */
-export const SITE_TITLE = 'Creative Digital Growth';
+export const SITE_TITLE = 'LocalSEOHUB';
 export const SITE_DESCRIPTION =
   'A small, fast, hand-built blog about the things worth writing down.';
 
@@ -9,7 +9,7 @@ export const SITE_DESCRIPTION =
 export const AUTHOR_NAME = 'Your Name';
 export const AUTHOR_BIO =
   'One-line bio goes here — who you are and what you write about.';
-export const AUTHOR_EMAIL = 'you@example.com';
+export const AUTHOR_EMAIL = 'hello@localseohub.com'; // TODO: placeholder — replace with the real contact address
 
 /** Default social image, relative to /public. Used when a page has no image of its own. */
 export const DEFAULT_OG_IMAGE = '/social-card.png';
@@ -44,10 +44,10 @@ export const TOC_MIN_HEADINGS = 3;
  * unset here: this project has no public GitHub repo yet (see README.md).
  */
 export const GISCUS = {
-  repo: '',
-  repoId: '',
+  repo: 'LocalSEOHUB/firebase-blog',
+  repoId: '', // TODO: fill in after enabling Giscus on the new repo
   category: 'Announcements',
-  categoryId: '',
+  categoryId: '', // TODO: fill in after enabling Giscus on the new repo
   mapping: 'pathname',
   reactionsEnabled: '1',
   inputPosition: 'top',

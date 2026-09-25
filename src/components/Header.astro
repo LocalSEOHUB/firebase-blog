@@ -1,8 +1,9 @@
 ---
 // Renders as the "window" chrome for the whole site: a titlebar with traffic-light
-// dots and a fake shell prompt, plus a bracket-style tab row underneath. See
-// .window / .titlebar / .site-nav in global.css, and BaseLayout.astro for how this
-// wraps the rest of the page as a single floating terminal window.
+// dots, a small monochrome "boot logo" mark, and a fake shell prompt, plus a
+// bracket-style tab row underneath. See .window / .titlebar / .site-nav / .boot-logo
+// in global.css, and BaseLayout.astro for how this wraps the rest of the page as a
+// single floating terminal window.
 import { SITE_TITLE, FEATURES } from '../consts';
 import { withBase } from '../lib/url';
 import ThemeToggle from './ThemeToggle.astro';
@@ -30,6 +31,7 @@ const slug = SITE_TITLE.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-
   <div class="titlebar-row">
     <span class="dots" aria-hidden="true"><i class="dot dot-r"></i><i class="dot dot-y"></i><i class="dot dot-g"></i></span>
     <a class="brand" href={withBase('/')}>
+      <img class="boot-logo" src={withBase('/logo.png')} alt="" width="18" height="18" decoding="async" />
       <span class="path">guest@{slug}</span><span class="path-sep">:~$</span> whoami
     </a>
     <ThemeToggle />

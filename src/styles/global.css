@@ -383,6 +383,20 @@ main {
   color: var(--text-muted);
 }
 
+/* Shared cross-project badge, treated as terminal chrome rather than a dropped-in
+   logo: crushed to a plain silhouette and retinted phosphor-green with a soft glow,
+   like a boot-screen logo on old amber/green terminal hardware. */
+.brand .boot-logo {
+  display: inline-block;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-inline-end: 0.4rem;
+  vertical-align: -0.25rem;
+  filter: grayscale(1) brightness(0) invert(1) sepia(1) saturate(6) hue-rotate(78deg)
+    drop-shadow(0 0 4px color-mix(in srgb, var(--accent) 65%, transparent));
+  opacity: 0.9;
+}
+
 .brand::after {
   content: "\2588";
   display: inline-block;
