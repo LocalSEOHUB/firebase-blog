@@ -61,4 +61,15 @@ export const GISCUS = {
 export const CONTACT_FORM_ENDPOINT = '';
 
 /** Optional social links shown in the footer. Add entries as needed. */
-export const SOCIAL_LINKS: { label: string; href: string }[] = [];
+export const SOCIAL_LINKS = [
+  { label: 'GitHub', href: 'https://github.com/LocalSEOHUB' },
+] as const;
+
+/** Sibling LocalSEOHUB blogs — same content family, one per static host. */
+export const SIBLING_SITES = [
+  { label: 'github pages', href: 'https://localseohub.github.io/' },
+  { label: 'cloudflare pages', href: 'https://localseohub.pages.dev/' },
+  { label: 'netlify', href: 'https://localseohub.netlify.app/' },
+  { label: 'vercel', href: 'https://localseohub.vercel.app/' },
+  { label: 'bolt.new', href: 'https://localseohub.bolt.host/' },
+] as const;
