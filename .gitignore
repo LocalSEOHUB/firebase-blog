@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 # pagefind index is generated into dist/ by the postbuild step
+
+# Firebase CLI local deploy cache
+.firebase/

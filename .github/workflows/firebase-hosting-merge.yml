@@ -11,13 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # package.json requires node >=22.12.0 (Astro 7); ubuntu-latest's bundled
+      # default isn't guaranteed to satisfy that, so pin it explicitly.
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '22'
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LOCALSEOHUB_BLOG_PLACEHOLDER }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LOCALSEOHUB_3D04D }}
           channelId: live
-          projectId: localseohub-blog-PLACEHOLDER
+          projectId: localseohub-3d04d

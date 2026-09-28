@@ -3,13 +3,12 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 // Deployed via Firebase Hosting (firebase.json + .firebaserc at the project root).
-// PLACEHOLDER project: .firebaserc pins "localseohub-blog-PLACEHOLDER", which is not
-// a real Firebase project yet. src/lib/url.ts mediates every internal link, so the
-// site can move under a sub-path (or a custom domain) later by changing `site`/`base`
-// here alone — update this `site` value together with `.firebaserc` once a real
-// Firebase project exists (see CLAUDE.md).
+// Project id is `localseohub-3d04d` — Firebase auto-suffixed it because the plain
+// "localseohub" id was already taken (same as the sibling LocalSME project needing
+// "localsmework"). src/lib/url.ts mediates every internal link, so the site can move
+// under a sub-path (or a custom domain) later by changing `site`/`base` here alone.
 export default defineConfig({
-  site: 'https://localseohub.firebaseapp.com',
+  site: 'https://localseohub-3d04d.firebaseapp.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({

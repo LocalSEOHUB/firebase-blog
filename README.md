@@ -13,13 +13,11 @@ and its own content:
   traffic-light dots, monospace throughout, posts that read like `cat <slug>.md`
 
 **Repo:** [LocalSEOHUB/firebase-blog](https://github.com/LocalSEOHUB/firebase-blog)
-on GitHub. **Hosting: Firebase Hosting**, PLACEHOLDER project id
-`localseohub-blog-PLACEHOLDER` (`https://localseohub.firebaseapp.com/`, itself a
-placeholder domain) — landed here after Replit (30-day free-tier expiry) and Render
-(requires card verification) didn't work out. **No real Firebase project exists yet**
-and nothing is deployed; see [CLAUDE.md](CLAUDE.md) for the remaining steps (creating
-the real Firebase project, then `firebase init hosting:github` — needs your own
-Google login, can't be done from an assistant session).
+on GitHub. **Live at <https://localseohub-3d04d.firebaseapp.com/>**, Firebase project
+id `localseohub-3d04d` (auto-suffixed by Firebase since the plain "localseohub" id was
+taken) — landed here after Replit (30-day free-tier expiry) and Render (requires card
+verification) didn't work out. Deployed via `firebase init hosting:github`, which wired
+up automatic deploys on push to `main` through a GitHub Actions workflow.
 
 ## Quick start
 

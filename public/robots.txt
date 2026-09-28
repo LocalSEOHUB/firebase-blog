@@ -1,8 +1,7 @@
-# Placeholder — update the host below once this project is deployed to Firebase
-# Hosting (see CLAUDE.md).
+# Served at https://localseohub-3d04d.firebaseapp.com/robots.txt
 
 User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://localseohub.firebaseapp.com/sitemap-index.xml
+Sitemap: https://localseohub-3d04d.firebaseapp.com/sitemap-index.xml

@@ -6,9 +6,12 @@ Pages, Netlify and vzero-blog (Vercel) projects, but its own codebase, content a
 design going forward.
 
 **Repo:** [LocalSEOHUB/firebase-blog](https://github.com/LocalSEOHUB/firebase-blog)
-on GitHub (`main`). **Hosting: Firebase Hosting** — its free Spark plan needs no card at
-all for static Hosting (only Cloud Functions/Blaze require billing). See `firebase.json`
-and "Placeholders to fill in" below before this ships.
+on GitHub (`main`). **Hosting: Firebase Hosting**, project id `localseohub-3d04d`
+(auto-suffixed by Firebase since the plain "localseohub" id was taken — same as the
+sibling LocalSME project needing `localsmework`), live at
+<https://localseohub-3d04d.firebaseapp.com/>. Its free Spark plan needs no card at all
+for static Hosting (only Cloud Functions/Blaze require billing). See `firebase.json` and
+"Placeholders to fill in" below for what's still generic template content.
 
 This project's name and hosting have moved twice: scaffolded for a Replit Static
 Deployment (as `Replit-blog`) whose free tier expires after 30 days, tried Render next
@@ -71,40 +74,26 @@ dev) and choose **"Work with Local Repository"**.
 
 ## Deploying to Firebase Hosting
 
-**No real Firebase project exists yet.** `.firebaserc`'s default project and
-`astro.config.mjs`'s `site` are both set to a PLACEHOLDER
-(`localseohub-blog-PLACEHOLDER` / `https://localseohub.firebaseapp.com/`) — this is a
-fork of the original `firebase-blog` scaffold rebranded for LocalSEOHUB, and "localseohub"
-may or may not be available as a real Firebase project ID (a past sibling rebrand needed
-a variant name, e.g. `localsmework` instead of `localsme`, when the short name was
-already taken). `firebase.json` (public dir `dist`, `trailingSlash: true` to match
+**Deployed.** `.firebaserc`'s default project (`localseohub-3d04d`) and
+`astro.config.mjs`'s `site` (`https://localseohub-3d04d.firebaseapp.com`) both point at
+the real Firebase project — "localseohub" itself was already taken, so Firebase
+auto-suffixed it (same as the sibling LocalSME project needing `localsmework`).
+`firebase.json` (public dir `dist`, `trailingSlash: true` to match
 `astro.config.mjs`'s `trailingSlash: 'always'` — the same class of bug the
-`/admin/config.yml` absolute-path fix addressed on Vercel) is committed too and needs no
-brand-specific changes.
+`/admin/config.yml` absolute-path fix addressed on Vercel) needed no brand-specific
+changes.
 
-**Not yet actually deployed** — there is no Firebase project behind the placeholder URL
-at all yet. Remaining steps, which need the user's own Google/Firebase login and can't
-be done from here:
+Set up via `firebase init hosting:github`, pointed at `LocalSEOHUB/firebase-blog`,
+branch `main` — this created a GCP service account, stored it as the GitHub Actions
+secret `FIREBASE_SERVICE_ACCOUNT_LOCALSEOHUB_3D04D` on the repo, and generated
+`.github/workflows/firebase-hosting-merge.yml` and `-pull-request.yml` (a first attempt
+at this accidentally typed the wrong repo, `LocalSEOHUB/cloudflare-blog`, and had to be
+cleaned up there and re-run against the right repo — check any *other* sibling that
+hasn't been Firebase-deployed yet for the same mistake before assuming its secret
+landed in the right place).
 
-1. Create a real Firebase project (Console or `firebase projects:create`), then update
-   `.firebaserc`'s `default` and `astro.config.mjs`'s `site` to match the real project
-   ID/domain — together, in one pass.
-2. `npm install -g firebase-tools`, then `firebase login`.
-3. From this directory: `firebase init hosting:github`. Point it at
-   `LocalSEOHUB/firebase-blog`, branch `main`. This is the step that actually
-   wires up automatic deploys — it creates a GCP service account, stores it as a GitHub
-   Actions secret on the repo, and **regenerates the deploy workflow files**
-   (`.github/workflows/firebase-hosting-merge.yml` and `-pull-request.yml`, currently
-   pointed at the placeholder secret name/project ID). Prefer letting the CLI regenerate
-   those files over hand-editing them further; it gets the secret name and project ID
-   right by construction. Double-check the generated workflow's Node version is ≥22
-   (Astro 7's requirement) — the CLI's default may be older.
-4. Confirm a push to `main` (or a CMS save) triggers the Action and the site goes live.
-
-Alternatively, a one-off `firebase deploy --only hosting` (after `npm run build`) would
-get *something* live immediately without setting up the GitHub Action, but every
-sibling blog's whole point is "save in CMS → live automatically" — worth doing the
-GitHub integration properly rather than a manual deploy that has to be repeated by hand.
+A push to `main` (or a CMS save) triggers the Action and deploys automatically — the
+same "save in CMS → live" flow every sibling blog has.
 
 ## Rules that are easy to get wrong
 
@@ -140,22 +129,19 @@ relative one.** A relative link 404s whenever `/admin` (no trailing slash) is re
 directly, because the browser resolves it against `/` instead of `/admin/` — this bit
 the vzero-blog sibling in production. Keep it absolute.
 
-## Placeholders to fill in once this ships
+## Placeholders still to fill in
 
-Nothing here works "by accident" — these are deliberately fake values, not bugs:
+The site-URL-shaped config (`.firebaserc`, `astro.config.mjs`, `public/admin/
+config.yml`'s `site_url`/`display_url`, `public/robots.txt`'s `Sitemap:` line, and the
+two `.github/workflows/firebase-hosting-*.yml` files) is now real — no action needed
+there. What's still deliberately fake:
 
 - `src/consts.ts` — `GISCUS.repo` is set to `LocalSEOHUB/firebase-blog`, but
   `repoId`/`categoryId` are still empty (fill in from https://giscus.app once Giscus is
   enabled on the new repo), `SOCIAL_LINKS` (empty), `AUTHOR_NAME`/`AUTHOR_BIO` (still
   template defaults), `AUTHOR_EMAIL` (set to the placeholder `hello@localseohub.com`)
-
-Everything site-URL-shaped (`.firebaserc`, `astro.config.mjs`, `public/admin/
-config.yml`'s `site_url`/`display_url`, `public/robots.txt`'s `Sitemap:` line, and the
-two `.github/workflows/firebase-hosting-*.yml` files) currently points at the
-PLACEHOLDER project id `localseohub-blog-PLACEHOLDER` / domain
-`localseohub.firebaseapp.com` — **none of this is real yet**. Once a real Firebase
-project is created, update all of those together in one pass (see "Deploying to
-Firebase Hosting" above).
+- `public/social-card.png` — still shows the old CreativeDigitalGrowth brand baked in
+  as an image, needs a fresh design
 
 ## Before calling a change done
 
